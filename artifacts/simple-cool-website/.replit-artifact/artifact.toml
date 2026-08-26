@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Simple Cool Website"
+description = "A simple, polished, responsive landing page designed to be exported as a single index.html and hosted on GitHub Pages."
+version = "1.0.0"
+id = "artifacts/simple-cool-website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20246
+
+[services.development]
+run = "pnpm --filter @workspace/simple-cool-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/simple-cool-website", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/simple-cool-website/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20246"
+BASE_PATH = "/"
