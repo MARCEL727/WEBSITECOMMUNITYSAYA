@@ -25,7 +25,7 @@
         place-items: center;
         min-height: 100vh;
         margin: 0;
-        overflow: hidden;
+        overflow-x: hidden;
         color: var(--text);
         background:
           radial-gradient(circle at 14% 15%, rgba(184, 255, 98, .09), transparent 27rem),
@@ -45,6 +45,66 @@
         background-size: 36px 36px;
         mask-image: linear-gradient(to bottom, black, transparent 82%);
       }
+      .mobile-site { width: 100%; }
+      .mobile-header {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: min(680px, calc(100% - 36px));
+        margin: 0 auto 18px;
+        padding: 22px 0 0;
+      }
+      .mobile-logo {
+        color: var(--acid);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: .16em;
+      }
+      .menu-button {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 36px;
+        padding: 0;
+        color: var(--acid);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        font-size: 25px;
+        line-height: 1;
+      }
+      .menu-button:hover, .menu-button:focus-visible { color: var(--bg); background: var(--acid); outline: none; }
+      .menu-panel {
+        position: absolute;
+        right: 0;
+        top: 66px;
+        display: none;
+        min-width: 156px;
+        padding: 7px;
+        background: var(--panel);
+        border: 1px solid var(--acid);
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, .35);
+      }
+      .menu-panel.is-open { display: block; }
+      .menu-panel a {
+        display: block;
+        padding: 11px 12px;
+        color: var(--acid-soft);
+        font-size: 11px;
+        letter-spacing: .12em;
+      }
+      .menu-panel a:hover, .menu-panel a:focus-visible { color: var(--bg); background: var(--acid); outline: none; }
+      .desktop-block {
+        display: none;
+        width: min(560px, calc(100% - 36px));
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(184,255,98,.7), rgba(184,255,98,.06));
+        box-shadow: 0 28px 90px rgba(0,0,0,.45);
+      }
+      .desktop-card { padding: 48px; background: var(--panel); }
+      .desktop-card h1 { margin: 22px 0 12px; color: var(--text); font-size: clamp(30px, 6vw, 48px); font-weight: 400; letter-spacing: -.08em; line-height: 1; }
+      .desktop-card p:last-child { margin: 0; color: var(--muted); font-size: 13px; }
       .profile {
         position: relative;
         width: min(680px, calc(100% - 36px));
@@ -175,6 +235,7 @@
         box-shadow: 0 0 10px var(--acid);
       }
       @media (max-width: 560px) {
+        .mobile-header { width: calc(100% - 36px); }
         .profile-card { padding: 30px 23px 25px; }
         .profile-card::after { right: 18px; top: 18px; width: 32px; height: 32px; }
         .profile-title { margin-bottom: 34px; }
@@ -182,32 +243,65 @@
         .stats { grid-template-columns: repeat(2, 1fr); }
         .stat { padding: 15px 12px; }
       }
+      @media (min-width: 769px) {
+        .mobile-site { display: none; }
+        .desktop-block { display: block; }
+      }
       @media (prefers-reduced-motion: reduce) {
         * { scroll-behavior: auto !important; }
       }
     </style>
   </head>
   <body>
-    <main class="profile" aria-label="Profil COMMUNITY">
-      <section class="profile-card">
-        <p class="label">PROFIL:</p>
-        <div class="profile-title">
-          <h1>ada</h1>
-        </div>
-        <div class="name-row">
-          <span class="label">NAMA:</span>
-          <strong>COMMUNITY</strong>
-        </div>
-        <div class="stats">
-          <div class="stat"><span>[Fps]</span><strong id="fps">--</strong></div>
-          <div class="stat"><span>[Negara]</span><strong id="country">--</strong></div>
-          <div class="stat"><span>[Baterai]</span><strong id="battery">--</strong></div>
-          <div class="stat"><span>[Waktu/jam]</span><strong id="clock">--:--:--</strong></div>
-        </div>
-      </section>
-    </main>
+    <div class="desktop-block" role="alert">
+      <div class="desktop-card">
+        <p class="label">AKSES DIBATASI</p>
+        <h1>Situs ini hanya untuk HP.</h1>
+        <p>Silakan buka menggunakan perangkat mobile.</p>
+      </div>
+    </div>
+    <div class="mobile-site" id="beranda">
+      <header class="mobile-header">
+        <a class="mobile-logo" href="#beranda">COMMUNITY</a>
+        <button class="menu-button" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">≡</button>
+        <nav class="menu-panel" id="mobile-menu" aria-label="Menu utama">
+          <a href="#beranda">BERANDA</a>
+        </nav>
+      </header>
+      <main class="profile" aria-label="Profil COMMUNITY">
+        <section class="profile-card">
+          <p class="label">PROFIL:</p>
+          <div class="profile-title">
+            <h1>ada</h1>
+          </div>
+          <div class="name-row">
+            <span class="label">NAMA:</span>
+            <strong>COMMUNITY</strong>
+          </div>
+          <div class="stats">
+            <div class="stat"><span>[Fps]</span><strong id="fps">--</strong></div>
+            <div class="stat"><span>[Negara]</span><strong id="country">--</strong></div>
+            <div class="stat"><span>[Baterai]</span><strong id="battery">--</strong></div>
+            <div class="stat"><span>[Waktu/jam]</span><strong id="clock">--:--:--</strong></div>
+          </div>
+        </section>
+      </main>
+    </div>
     <script>
       (() => {
+        const menuButton = document.querySelector(".menu-button");
+        const menu = document.getElementById("mobile-menu");
+        menuButton?.addEventListener("click", () => {
+          const open = menu.classList.toggle("is-open");
+          menuButton.setAttribute("aria-expanded", String(open));
+          menuButton.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+        });
+        menu?.querySelector("a")?.addEventListener("click", () => {
+          menu.classList.remove("is-open");
+          menuButton?.setAttribute("aria-expanded", "false");
+          menuButton?.setAttribute("aria-label", "Buka menu");
+        });
+
         const fpsElement = document.getElementById("fps");
         const countryElement = document.getElementById("country");
         const batteryElement = document.getElementById("battery");
