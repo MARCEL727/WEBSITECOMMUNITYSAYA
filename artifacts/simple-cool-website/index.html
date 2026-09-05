@@ -3,116 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>COMMUNITY</title>
-    <meta name="description" content="Profil COMMUNITY." />
-    <meta name="theme-color" content="#0b0e0d" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23b8ff62'/%3E%3Cpath d='M20 19h24v7H28v5h12v7H28v7h16v7H20z' fill='%230b0e0d'/%3E%3C/svg%3E" />
+    <title>COMMUNITY — HTML Templates</title>
+    <meta name="description" content="Koleksi template HTML untuk ide dan proyek COMMUNITY." />
+    <meta name="theme-color" content="#081c38" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23081c38'/%3E%3Cpath d='M18 18h28v8H26v6h16v8H26v6h20v8H18z' fill='%234dc7ff'/%3E%3C/svg%3E" />
     <style>
-      :root { --bg:#0b0e0d; --panel:#121716; --panel-light:#1a201d; --line:rgba(218,255,196,.15); --text:#f0f3e9; --muted:#89948a; --acid:#b8ff62; --acid-soft:#d9ffab; }
-      * { box-sizing:border-box; }
-      html,body { min-height:100%; }
-      body { display:grid; place-items:center; min-height:100vh; margin:0; overflow-x:hidden; color:var(--text); background:radial-gradient(circle at 14% 15%,rgba(184,255,98,.09),transparent 27rem),radial-gradient(circle at 87% 90%,rgba(82,144,110,.12),transparent 30rem),var(--bg); font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace; }
-      body::before { position:fixed; inset:0; pointer-events:none; content:""; opacity:.22; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:36px 36px; mask-image:linear-gradient(to bottom,black,transparent 82%); }
-      .mobile-site { width:100%; }
-      .mobile-header { position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; width:min(680px,calc(100% - 36px)); margin:0 auto 18px; padding:22px 0 0; }
-      .mobile-logo { color:var(--acid); font-size:13px; font-weight:700; letter-spacing:.16em; }
-      .menu-button { display:grid; place-items:center; width:42px; height:36px; padding:0; color:var(--acid); background:var(--panel); border:1px solid var(--line); font-size:25px; line-height:1; }
-      .menu-button:hover,.menu-button:focus-visible { color:var(--bg); background:var(--acid); outline:none; }
-      .menu-panel { position:absolute; right:0; top:66px; display:none; min-width:156px; padding:7px; background:var(--panel); border:1px solid var(--acid); box-shadow:8px 8px 0 rgba(0,0,0,.35); }
-      .menu-panel.is-open { display:block; }
-      .menu-panel a { display:block; padding:11px 12px; color:var(--acid-soft); font-size:11px; letter-spacing:.12em; }
-      .menu-panel a:hover,.menu-panel a:focus-visible { color:var(--bg); background:var(--acid); outline:none; }
-      .desktop-block { display:none; width:min(560px,calc(100% - 36px)); padding:1px; background:linear-gradient(135deg,rgba(184,255,98,.7),rgba(184,255,98,.06)); box-shadow:0 28px 90px rgba(0,0,0,.45); }
-      .desktop-card { padding:48px; background:var(--panel); }
-      .desktop-card h1 { margin:22px 0 12px; color:var(--text); font-size:clamp(30px,6vw,48px); font-weight:400; letter-spacing:-.08em; line-height:1; }
-      .desktop-card p:last-child { margin:0; color:var(--muted); font-size:13px; }
-      .profile { position:relative; width:min(680px,calc(100% - 36px)); padding:1px; background:linear-gradient(135deg,rgba(184,255,98,.7),rgba(184,255,98,.06) 45%,rgba(184,255,98,.25)); box-shadow:0 28px 90px rgba(0,0,0,.45); }
-      .profile::before,.profile::after { position:absolute; width:7px; height:7px; content:""; background:var(--acid); }
-      .profile::before { top:-3px; left:-3px; } .profile::after { right:-3px; bottom:-3px; }
-      .profile-card { position:relative; padding:clamp(28px,6vw,64px); background:var(--panel); }
-      .profile-card::after { position:absolute; right:28px; top:28px; width:48px; height:48px; content:""; border-top:1px solid var(--acid); border-right:1px solid var(--acid); opacity:.7; }
-      .label { margin:0; color:var(--acid); font-size:12px; font-weight:700; letter-spacing:.18em; }
-      .profile-title { display:flex; align-items:baseline; gap:15px; margin:24px 0 45px; }
-      .profile-title h1 { margin:0; color:var(--text); font-size:clamp(42px,10vw,76px); font-weight:400; letter-spacing:-.09em; line-height:.9; }
-      .profile-title h1::after { display:inline-block; width:9px; height:9px; margin-left:12px; content:""; background:var(--acid); border-radius:50%; box-shadow:0 0 18px var(--acid); }
-      .name-row { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-      .name-row strong { color:var(--acid-soft); font-size:clamp(19px,4vw,30px); font-weight:400; letter-spacing:.08em; }
-      .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:34px; background:var(--line); border:1px solid var(--line); }
-      .stat { min-width:0; padding:18px 15px 19px; background:var(--panel-light); }
-      .stat span { display:block; margin-bottom:12px; overflow:hidden; color:var(--muted); font-size:11px; text-overflow:ellipsis; white-space:nowrap; }
-      .stat strong { display:block; overflow:hidden; color:var(--text); font-size:clamp(13px,2.5vw,18px); font-weight:400; letter-spacing:-.04em; text-overflow:ellipsis; white-space:nowrap; }
-      .stat:first-child strong,.stat:last-child strong { color:var(--acid); }
-      @media (max-width:560px) { .mobile-header { width:calc(100% - 36px); } .profile-card { padding:30px 23px 25px; } .profile-card::after { right:18px; top:18px; width:32px; height:32px; } .profile-title { margin-bottom:34px; } .name-row { align-items:flex-start; flex-direction:column; gap:9px; } .stats { grid-template-columns:repeat(2,1fr); } .stat { padding:15px 12px; } }
-      @media (min-width:769px) { .mobile-site { display:none; } .desktop-block { display:block; } }
+      :root{--navy:#081c38;--blue:#168cf0;--cyan:#4dc7ff;--ink:#182c42;--muted:#687b90;--line:#dfe8ef;--paper:#f5f9fc;--white:#fff}
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{min-height:100vh;margin:0;overflow-x:hidden;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+      .desktop-block{display:none;width:min(560px,calc(100% - 36px));margin:auto;padding:1px;background:linear-gradient(135deg,var(--cyan),rgba(77,199,255,.12));box-shadow:0 28px 90px rgba(0,0,0,.28)}.desktop-card{padding:48px;color:#fff;background:var(--navy)}.desktop-card small{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.desktop-card h1{margin:20px 0 12px;font-size:clamp(30px,6vw,48px);font-weight:500;letter-spacing:-.06em;line-height:1}.desktop-card p{margin:0;color:#b4c7da;font-size:13px}
+      .mobile-site{width:100%;min-height:100vh;background:var(--paper)}.topbar{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;min-height:58px;padding:0 18px;color:#fff;background:var(--navy)}.brand{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:800;letter-spacing:-.02em}.brand-mark{display:grid;place-items:center;width:25px;height:25px;color:var(--navy);background:var(--cyan);border-radius:5px;font-size:14px;font-weight:900}.brand em{color:var(--cyan);font-style:normal}.menu-button{display:grid;place-items:center;width:35px;height:34px;padding:0;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.3);border-radius:4px;font-size:23px;line-height:1}.menu-button:hover{color:var(--navy);background:var(--cyan)}.menu-panel{position:absolute;top:52px;right:18px;display:none;min-width:150px;padding:7px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 24px rgba(26,61,91,.12)}.menu-panel.is-open{display:block}.menu-panel a{display:block;padding:12px;color:var(--navy);font-size:11px;font-weight:800;letter-spacing:.12em}.menu-panel a:hover{color:#fff;background:var(--blue)}
+      .category-bar{display:flex;gap:18px;overflow-x:auto;padding:11px 18px;color:#52687e;background:#fff;border-bottom:1px solid var(--line);scrollbar-width:none}.category-bar::-webkit-scrollbar,.chips::-webkit-scrollbar{display:none}.category-bar a{flex:0 0 auto;font-size:10px;font-weight:700;white-space:nowrap}.category-bar a:first-child{color:var(--blue)}
+      .hero{padding:37px 18px 31px;text-align:center;background:linear-gradient(135deg,#bfe8ff,#d8f8e8)}.breadcrumb{margin:0 0 15px;color:#6a889b;font-size:10px}.hero h1{margin:0;color:#172f45;font-size:clamp(27px,8vw,42px);font-weight:650;letter-spacing:-.055em;line-height:1.05}.hero p{margin:11px auto 21px;color:#3e6274;font-size:12px}.chips{display:flex;gap:7px;overflow-x:auto;justify-content:flex-start;padding-bottom:2px;scrollbar-width:none}.chip{flex:0 0 auto;padding:7px 10px;color:#446073;background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.9);border-radius:4px;font-size:10px}.chip.active,.chip:hover{color:#fff;background:var(--blue);border-color:var(--blue)}
+      .catalog{padding:28px 18px 38px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:16px}.section-head h2{margin:0;color:#21384e;font-size:19px;letter-spacing:-.04em}.section-head a{color:var(--blue);font-size:10px;font-weight:800}.search{display:flex;align-items:center;gap:9px;margin-bottom:19px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:4px}.search svg{color:#8aa0b3}.search input{width:100%;border:0;outline:0;color:var(--ink);background:transparent;font-size:12px}.search input::placeholder{color:#9aabb9}.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product-card{overflow:hidden;min-width:0;background:#fff;border:1px solid var(--line);border-radius:3px;box-shadow:0 3px 9px rgba(38,70,94,.07);transition:transform .2s ease}.product-card:hover{transform:translateY(-3px)}.product-card.is-hidden{display:none}.thumb{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:1.35;overflow:hidden;padding:11px;color:#fff;text-align:center}.thumb:after{position:absolute;inset:0;content:"";opacity:.22;background-image:linear-gradient(135deg,transparent 45%,rgba(255,255,255,.7) 46%,transparent 48%),linear-gradient(45deg,transparent 58%,rgba(255,255,255,.5) 59%,transparent 61%);background-size:26px 26px}.thumb-content{position:relative;z-index:1}.thumb small{display:block;margin-bottom:6px;font-size:8px;font-weight:800;letter-spacing:.12em;opacity:.8}.thumb strong{display:block;font-size:clamp(17px,5vw,27px);letter-spacing:-.08em;line-height:.92}.thumb b{display:block;margin-top:7px;font-size:8px;font-weight:500}.thumb--blue{background:linear-gradient(135deg,#0c62d6,#44c3f6)}.thumb--purple{background:linear-gradient(135deg,#3d238f,#c04ce8)}.thumb--dark{background:linear-gradient(135deg,#081936,#26356c)}.thumb--green{background:linear-gradient(135deg,#0c6b66,#a3d54f)}.thumb--orange{background:linear-gradient(135deg,#ed633e,#ffbf4d)}
+      .product-info{padding:10px 10px 11px}.product-title{display:-webkit-box;overflow:hidden;min-height:29px;margin:0 0 8px;color:#344d62;font-size:11px;line-height:1.35;-webkit-box-orient:vertical;-webkit-line-clamp:2}.product-meta{display:flex;align-items:center;justify-content:space-between;gap:5px;color:#8496a5;font-size:9px}.stars{color:#ffae00;letter-spacing:-2px}.price{color:#182c42;font-size:13px;font-weight:800}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}.product-actions button{padding:7px 3px;color:#fff;background:#8699a5;border:0;border-radius:2px;font-size:9px}.product-actions button:last-child{background:var(--blue)}.status-bar{display:flex;gap:10px;overflow-x:auto;margin:0 18px 24px;padding:9px 10px;color:#718697;background:#edf4f8;border:1px solid var(--line);border-radius:3px;scrollbar-width:none}.status-bar span{flex:0 0 auto;font-size:9px;white-space:nowrap}.status-bar strong{color:#31516a}.empty{display:none;padding:35px 10px;color:var(--muted);text-align:center;font-size:12px}.empty.is-visible{display:block}
+      @media(min-width:769px){body{display:grid;place-items:center}.mobile-site{display:none}.desktop-block{display:block}}
     </style>
   </head>
   <body>
-    <div class="desktop-block" role="alert">
-      <div class="desktop-card"><p class="label">AKSES DIBATASI</p><h1>Situs ini hanya untuk HP.</h1><p>Silakan buka menggunakan perangkat mobile.</p></div>
-    </div>
+    <div class="desktop-block" role="alert"><div class="desktop-card"><small>Akses dibatasi</small><h1>Situs ini hanya untuk HP.</h1><p>Silakan buka menggunakan perangkat mobile.</p></div></div>
     <div class="mobile-site" id="beranda">
-      <header class="mobile-header">
-        <a class="mobile-logo" href="#beranda">COMMUNITY</a>
-        <button class="menu-button" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">≡</button>
-        <nav class="menu-panel" id="mobile-menu" aria-label="Menu utama"><a href="#beranda">BERANDA</a></nav>
-      </header>
-      <main class="profile" aria-label="Profil COMMUNITY">
-        <section class="profile-card">
-          <p class="label">PROFIL:</p>
-          <div class="profile-title"><h1>ada</h1></div>
-          <div class="name-row"><span class="label">NAMA:</span><strong>COMMUNITY</strong></div>
-          <div class="stats">
-            <div class="stat"><span>[Fps]</span><strong id="fps">--</strong></div>
-            <div class="stat"><span>[Negara]</span><strong id="country">--</strong></div>
-            <div class="stat"><span>[Baterai]</span><strong id="battery">--</strong></div>
-            <div class="stat"><span>[Waktu/jam]</span><strong id="clock">--:--:--</strong></div>
-          </div>
-        </section>
-      </main>
+      <header class="topbar"><a class="brand" href="#beranda" aria-label="COMMUNITY Beranda"><span class="brand-mark">C</span><span>COMMUNITY <em>templates</em></span></a><button class="menu-button" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">≡</button><nav class="menu-panel" id="mobile-menu" aria-label="Menu utama"><a href="#beranda">BERANDA</a></nav></header>
+      <nav class="category-bar" aria-label="Kategori template"><a href="#beranda">Semua</a><a href="#catalog">Business</a><a href="#catalog">Wedding</a><a href="#catalog">Education</a><a href="#catalog">Construction</a><a href="#catalog">Travel</a><a href="#catalog">Medical</a><a href="#catalog">Web Design</a></nav>
+      <section class="hero"><p class="breadcrumb">Beranda / Website Templates</p><h1>Koleksi HTML5<br />Templates</h1><p>Pilih template terbaik untuk proyek kamu.</p><div class="chips" aria-label="Filter kategori"><button class="chip active" type="button" data-filter="All">All Themes</button><button class="chip" type="button" data-filter="Business">Business</button><button class="chip" type="button" data-filter="Education">Education</button><button class="chip" type="button" data-filter="Travel">Travel</button><button class="chip" type="button" data-filter="Web Design">Web Design</button></div></section>
+      <main id="catalog"><section class="catalog"><div class="section-head"><h2>Monthly Bestsellers</h2><a href="#catalog">View More ›</a></div><label class="search" for="template-search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><input id="template-search" type="search" placeholder="Cari template..." autocomplete="off" /></label><div class="product-grid">
+        <article class="product-card" data-category="Business" data-title="Business Multipurpose HTML Template"><div class="thumb thumb--blue"><div class="thumb-content"><small>BUSINESS</small><strong>POCKET</strong><b>HTML5 MULTIPURPOSE</b></div></div><div class="product-info"><p class="product-title">Pocket — Business & Multipurpose HTML Template</p><div class="product-meta"><span><span class="stars">★★★★★</span> 96 Sales</span><strong class="price">$17</strong></div><div class="product-actions"><button type="button">Details</button><button type="button">Live Demo</button></div></div></article>
+        <article class="product-card" data-category="Business" data-title="Techno IT Solution HTML Template"><div class="thumb thumb--blue"><div class="thumb-content"><small>IT SOLUTION</small><strong>Techno</strong><b>CREATIVE MULTIPURPOSE</b></div></div><div class="product-info"><p class="product-title">Techno — Best IT Solution & Multi-Purpose</p><div class="product-meta"><span><span class="stars">★★★★★</span> 402 Sales</span><strong class="price">$59</strong></div><div class="product-actions"><button type="button">Details</button><button type="button">Live Demo</button></div></div></article>
+        <article class="product-card" data-category="Web Design" data-title="Multipurpose Intense HTML Template"><div class="thumb thumb--purple"><div class="thumb-content"><small>CREATIVE STUDIO</small><strong>Intense</strong><b>HTML5 WEBSITE KIT</b></div></div><div class="product-info"><p class="product-title">Multipurpose Intense — HTML Website Template</p><div class="product-meta"><span><span class="stars">★★★★★</span> 4,124 Sales</span><strong class="price">$61</strong></div><div class="product-actions"><button type="button">Details</button><button type="button">Live Demo</button></div></div></article>
+        <article class="product-card" data-category="Business" data-title="Flex IT Business Services HTML Template"><div class="thumb thumb--dark"><div class="thumb-content"><small>BUSINESS SERVICES</small><strong>Flex-IT</strong><b>PROFESSIONAL SOLUTIONS</b></div></div><div class="product-info"><p class="product-title">Flex-IT — Business Services & IT Solutions</p><div class="product-meta"><span><span class="stars">★★★★★</span> 81 Sales</span><strong class="price">$39</strong></div><div class="product-actions"><button type="button">Details</button><button type="button">Live Demo</button></div></div></article>
+        <article class="product-card" data-category="Education" data-title="Nexus Hosting Website Template"><div class="thumb thumb--green"><div class="thumb-content"><small>HOSTING</small><strong>NEXUS</strong><b>SMART WEB PLATFORM</b></div></div><div class="product-info"><p class="product-title">Nexus — Hosting Website Template</p><div class="product-meta"><span><span class="stars">★★★★☆</span> 24 Sales</span><strong class="price">$14</strong></div><div class="product-actions"><button type="button">Details</button><button type="button">Live Demo</button></div></div></article>
+        <article class="product-card" data-category="Travel" data-title="Travel Landing HTML Template"><div class="thumb thumb--orange"><div class="thumb-content"><small>TRAVEL</small><strong>Roam</strong><b>ADVENTURE LANDING</b></div></div><div class="product-info"><p class="product-title">Roam — Travel & Adventure Landing Page</p><div class="product-meta"><span><span class="stars">★★★★★</span> 124 Sales</span><strong class="price">$24</strong></div><div class="product-actions"><button type="button">Details</button><button type="button">Live Demo</button></div></div></article>
+      </div><p class="empty" id="empty-state">Template tidak ditemukan.</p></section><div class="status-bar" aria-label="Status perangkat"><span>[Fps] <strong id="fps">--</strong></span><span>[Negara] <strong id="country">--</strong></span><span>[Baterai] <strong id="battery">--</strong></span><span>[Waktu/jam] <strong id="clock">--:--:--</strong></span></div></main>
     </div>
     <script>
-      (() => {
-        const menuButton = document.querySelector(".menu-button");
-        const menu = document.getElementById("mobile-menu");
-        menuButton?.addEventListener("click", () => {
-          const open = menu.classList.toggle("is-open");
-          menuButton.setAttribute("aria-expanded", String(open));
-          menuButton.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
-        });
-        menu?.querySelector("a")?.addEventListener("click", () => {
-          menu.classList.remove("is-open");
-          menuButton?.setAttribute("aria-expanded", "false");
-          menuButton?.setAttribute("aria-label", "Buka menu");
-        });
-
-        const fps = document.getElementById("fps");
-        const country = document.getElementById("country");
-        const battery = document.getElementById("battery");
-        const clock = document.getElementById("clock");
-        const names = { ID:"Indonesia", US:"USA", GB:"UK", SG:"Singapore", MY:"Malaysia", AU:"Australia", JP:"Japan", KR:"Korea", IN:"India", DE:"Germany", FR:"France", NL:"Netherlands" };
-        const locale = navigator.language || "id-ID";
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-        const timeZoneCountries = { "Asia/Jakarta":"Indonesia", "Asia/Makassar":"Indonesia", "Asia/Jayapura":"Indonesia", "Asia/Singapore":"Singapore", "Asia/Kuala_Lumpur":"Malaysia", "Asia/Tokyo":"Japan", "Asia/Seoul":"Korea", "Australia/Sydney":"Australia", "Europe/London":"UK", "Europe/Paris":"France", "Europe/Berlin":"Germany" };
-        const region = locale.match(/[-_]([A-Z]{2})$/i)?.[1]?.toUpperCase();
-        country.textContent = timeZoneCountries[timeZone] || names[region] || region || "—";
-        const updateClock = () => { clock.textContent = new Intl.DateTimeFormat(locale, { hour:"2-digit", minute:"2-digit", second:"2-digit", hour12:false }).format(new Date()); };
-        updateClock();
-        setInterval(updateClock, 1000);
-        if ("getBattery" in navigator) navigator.getBattery().then((deviceBattery) => {
-          const updateBattery = () => { battery.textContent = `${Math.round(deviceBattery.level * 100)}%`; };
-          updateBattery();
-          deviceBattery.addEventListener("levelchange", updateBattery);
-        }).catch(() => { battery.textContent = "—"; });
-        else battery.textContent = "—";
-        let frames = 0;
-        let last = performance.now();
-        const measure = (time) => {
-          frames++;
-          if (time - last >= 1000) { fps.textContent = `${Math.round(frames * 1000 / (time - last))} FPS`; frames = 0; last = time; }
-          requestAnimationFrame(measure);
-        };
-        requestAnimationFrame(measure);
-      })();
+      (()=>{const menuButton=document.querySelector(".menu-button"),menu=document.getElementById("mobile-menu");menuButton.addEventListener("click",()=>{const open=menu.classList.toggle("is-open");menuButton.setAttribute("aria-expanded",String(open));menuButton.setAttribute("aria-label",open?"Tutup menu":"Buka menu")});menu.querySelector("a").addEventListener("click",()=>{menu.classList.remove("is-open");menuButton.setAttribute("aria-expanded","false")});const search=document.getElementById("template-search"),chips=document.querySelectorAll(".chip"),cards=document.querySelectorAll(".product-card"),empty=document.getElementById("empty-state");let activeFilter="All";const filterCards=()=>{const query=search.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const show=(activeFilter==="All"||card.dataset.category===activeFilter)&&(!query||card.dataset.title.toLowerCase().includes(query));card.classList.toggle("is-hidden",!show);if(show)visible++});empty.classList.toggle("is-visible",visible===0)};chips.forEach(chip=>chip.addEventListener("click",()=>{activeFilter=chip.dataset.filter;chips.forEach(item=>item.classList.toggle("active",item===chip));filterCards()}));search.addEventListener("input",filterCards);const fps=document.getElementById("fps"),country=document.getElementById("country"),battery=document.getElementById("battery"),clock=document.getElementById("clock"),names={ID:"Indonesia",US:"USA",GB:"UK",SG:"Singapore",MY:"Malaysia",AU:"Australia",JP:"Japan",KR:"Korea",IN:"India",DE:"Germany",FR:"France",NL:"Netherlands"},locale=navigator.language||"id-ID",zone=Intl.DateTimeFormat().resolvedOptions().timeZone||"",zones={"Asia/Jakarta":"Indonesia","Asia/Makassar":"Indonesia","Asia/Jayapura":"Indonesia","Asia/Singapore":"Singapore","Asia/Kuala_Lumpur":"Malaysia","Asia/Tokyo":"Japan","Asia/Seoul":"Korea","Australia/Sydney":"Australia","Europe/London":"UK","Europe/Paris":"France","Europe/Berlin":"Germany"},region=locale.match(/[-_]([A-Z]{2})$/i)?.[1]?.toUpperCase();country.textContent=zones[zone]||names[region]||region||"—";const updateClock=()=>{clock.textContent=new Intl.DateTimeFormat(locale,{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date())};updateClock();setInterval(updateClock,1000);if("getBattery"in navigator)navigator.getBattery().then(deviceBattery=>{const updateBattery=()=>{battery.textContent=`${Math.round(deviceBattery.level*100)}%`};updateBattery();deviceBattery.addEventListener("levelchange",updateBattery)}).catch(()=>{battery.textContent="—"});else battery.textContent="—";let frames=0,last=performance.now();const measure=time=>{frames++;if(time-last>=1000){fps.textContent=`${Math.round(frames*1000/(time-last))} FPS`;frames=0;last=time}requestAnimationFrame(measure)};requestAnimationFrame(measure)})();
     </script>
   </body>
 </html>
